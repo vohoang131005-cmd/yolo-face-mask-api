@@ -1,6 +1,6 @@
 flask
-onnxruntime
-pillow
-numpy
-pyyaml
 gunicorn
+ultralytics
+opencv-python-headless
+numpy
+pillow
