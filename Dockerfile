@@ -1,18 +1,19 @@
-# Sử dụng image Python chính thức
 FROM python:3.11-slim
 
-# Đặt thư mục làm việc
-WORKDIR /code
+# Cài đặt các thư viện hệ thống cần thiết cho OpenCV (giải quyết lỗi libxcb)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+    libxcb1 \
+    && rm -rf /var/lib/apt/lists/*
 
-# Sao chép và cài đặt các thư viện
-COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+WORKDIR /app
 
-# Sao chép toàn bộ mã nguồn
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-# Hugging Face Spaces yêu cầu ứng dụng chạy trên cổng 7860
-EXPOSE 7860
-
-# Lệnh khởi chạy ứng dụng Flask
-CMD ["gunicorn", "-b", "0.0.0.0:7860", "app:app"]
+# Chạy bằng Gunicorn (chuẩn cho production)
+EXPOSE 8080
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--timeout", "120", "app:app"]
