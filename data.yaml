@@ -1,0 +1,14 @@
+names:
+- mask_weared_incorrect
+- with_mask
+- without_mask
+nc: 3
+roboflow:
+  license: CC BY 4.0
+  project: face-mask-detection-tmy8p
+  url: https://universe.roboflow.com/face-mask-detection-aarne/face-mask-detection-tmy8p/dataset/1
+  version: 1
+  workspace: face-mask-detection-aarne
+test: ../test/images
+train: ../train/images
+val: ../valid/images

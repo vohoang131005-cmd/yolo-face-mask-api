@@ -1,0 +1,34 @@
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+/* Lật gương video và canvas để nhìn giống như đang soi gương */
+#video, #overlay { 
+    transform: scaleX(-1); 
+}
+
+/* Đảm bảo video không bị méo */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Trang trí cho từng thẻ lịch sử */
+.history-item { 
+    border-bottom: 1px solid #6c757d; 
+    padding: 10px 0; 
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item img { 
+    width: 100%; 
+    border-radius: 8px; 
+    margin-top: 8px; 
+    border: 2px solid #dc3545; /* Viền đỏ báo lỗi */
+}
+
+.history-item strong {
+    color: #ffc107;
+}
