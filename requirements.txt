@@ -1,5 +1,13 @@
 flask
+flask-socketio
+eventlet
 gunicorn
 ultralytics
 numpy
 pillow
+psycopg2-binary
+opencv-python-headless
+requests
+python-dotenv
+onnx
+onnxruntime
